@@ -5,7 +5,7 @@ const BASE_URL = "https://ited-fc7ac-default-rtdb.firebaseio.com";
 export const addContact = async (contact) => {
   try {
     const response = await axios.post(
-      BASE_URL + `/contacts/${contact.contactType}.json`,
+      BASE_URL + `/contacts.json`,
       contact
     );
     const id = response.data.name;
@@ -14,6 +14,7 @@ export const addContact = async (contact) => {
     console.log(error);
   }
 };
+
 export const getContacts = async () => {
   try {
     const response = await axios.get(BASE_URL + "/contacts.json");

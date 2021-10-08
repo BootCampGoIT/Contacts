@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { filteredContacts } from "../../../helpers/contacts";
+import { ContactsContext } from "../Contacts";
+import ContactsList from "../contactsList/ContactsList";
 
 const Public = () => {
+  const contacts = useContext(ContactsContext);
+
   return (
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, beatae
-      doloremque quam ab sapiente nemo ut consequatur obcaecati, corrupti ipsam
-      pariatur porro vero blanditiis deleniti dolor perspiciatis illum placeat
-      eveniet. Culpa eius quaerat sunt eos praesentium quis accusantium, nam
-      quia quasi eligendi nisi unde animi voluptates rem officiis aspernatur.
-      Voluptatum.
-    </p>
+    <>
+      <ContactsList contacts={filteredContacts(contacts, "public")} />
+    </>
   );
 };
 

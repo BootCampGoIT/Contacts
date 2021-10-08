@@ -1,10 +1,11 @@
 import React, { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
-const RoutesList = ({ routes, match = "" }) => {
+const RoutesList = ({ routes, match = "", children = null }) => {
   return (
     <Suspense fallback={<h2>...loading</h2>}>
       <Switch>
+        {children}
         {routes.map((route) => (
           <Route
             path={match + route.path}
